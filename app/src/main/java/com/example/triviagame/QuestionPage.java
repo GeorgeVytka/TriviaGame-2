@@ -45,6 +45,7 @@ public class QuestionPage extends AppCompatActivity {
     private CategoriesPage categoriesPage = new CategoriesPage();
     private userClass user;
     private MediaPlayer mpWrong,mpCorrect,mpMusic;
+    ProgressBar progressBar;
     Animation formRight, formLeft, wrongShake;
    // private ProgressBar clock;
     HeaderClass headerClassInstance = new HeaderClass();
@@ -389,6 +390,7 @@ public class QuestionPage extends AppCompatActivity {
 
     public void assignValues(){
 
+
         formLeft =  AnimationUtils.loadAnimation(this,R.anim.fortheleft);
         formRight = AnimationUtils.loadAnimation(this,R.anim.fortheright);
         wrongShake =  AnimationUtils.loadAnimation(this,R.anim.shake);
@@ -433,6 +435,7 @@ public class QuestionPage extends AppCompatActivity {
             @Override
             public void onTick(long millisUntilFinished) {
                 timeLeftInMills = millisUntilFinished;
+
                 updateTimer();
                 timesUp = false;
             }
