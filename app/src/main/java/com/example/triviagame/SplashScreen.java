@@ -1,19 +1,21 @@
 package com.example.triviagame;
 
-import android.content.ComponentName;
 import android.content.Intent;
-import android.content.ServiceConnection;
-import android.os.IBinder;
 import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.Window;
 import android.view.WindowManager;
-import android.widget.Toast;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.widget.ImageView;
+
+import static java.lang.Thread.sleep;
 
 public class SplashScreen extends AppCompatActivity {
     private ConstraintLayout layout;
     private int st = 1;
+    Animation fade,clock;
+    private ImageView iv;
 
 
 
@@ -38,6 +40,15 @@ public class SplashScreen extends AppCompatActivity {
         layout = findViewById(R.id.constraintLayout);
         HeaderClass headerClassInstance = new HeaderClass();
         headerClassInstance.setBackground(layout, getApplicationContext());
+
+        fade = AnimationUtils.loadAnimation(this,R.anim.fadein);
+        clock = AnimationUtils.loadAnimation(this,R.anim.spinclockwise);
+
+
+        iv = findViewById(R.id.imageView2);
+
+        iv.setAnimation(fade);
+
 
         //if(headerClassInstance.getMusicPref(getApplicationContext()))
           //  startService(new Intent(this, BackgroundSoundService.class));

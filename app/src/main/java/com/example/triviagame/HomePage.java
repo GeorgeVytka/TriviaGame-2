@@ -67,6 +67,7 @@ public class HomePage extends AppCompatActivity {
             Toast.makeText(getApplicationContext(), "Music Settings is False", Toast.LENGTH_LONG).show();
     }
 
+    //plays the animation
     private void playAnimantion(){
         frombottom = AnimationUtils.loadAnimation(this,R.anim.frombottom);
         fromtop = AnimationUtils.loadAnimation(this,R.anim.fromthetop);
@@ -78,6 +79,13 @@ public class HomePage extends AppCompatActivity {
 
         if(ifVis){
         tv_LogIn.setAnimation(fromtop);}
+
+
+    }
+
+    //function for background color change
+    private void changeTheColorAnim(){
+
 
 
     }
@@ -190,6 +198,7 @@ public class HomePage extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getApplicationContext(), LogInPage.class));
+                tv_LogIn.animate().scaleX(1).scaleY(1).setDuration(350).start();
                 mpHigh.start();
                 finish();
             }
@@ -202,11 +211,13 @@ public class HomePage extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 mpHigh.start();
+
                 int backgroundNum = headerClassInstance.getCurBackground(getApplicationContext());
 
                 int temp = headerClassInstance.chnageBackground(backgroundNum, layout);
 
                 headerClassInstance.saveBackground(temp, getApplicationContext());
+
             }
         });
     }
